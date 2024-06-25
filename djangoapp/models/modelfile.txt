@@ -1,0 +1,2 @@
+This folder contains the llama model downloaded from 
+https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF
