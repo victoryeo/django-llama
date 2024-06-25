@@ -1,0 +1,47 @@
+# Environment Variables
+.env*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtualenv
+venv/
+bin*
+lib*
+include*
+history*
+
+# Pyenv
+.python-version
+
+# VS Workspaces
+*.code-workspace
+
+# Database files
+*.db
+*.sqlite3
+
+# Static files
+staticfiles/
+
+# Log files
+*.log
+
+# Secret keys and other sensitive data
+*.secret
+
+# IDE-specific files
+.idea/
+.vscode/
+*.pyc
+.DS_Store
+
+# Virtual Environment
+pyenv.cfg
+
+# ChromaDB Databases
+*.bin
+*.pickle
+
