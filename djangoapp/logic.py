@@ -102,9 +102,9 @@ def build_database():
     # Split the documents into chunks
     splits = splitter.split_documents(documents)
 
-    # Initialize the OpenAI embeddings
+    # Initialize the embeddings
     model_name = "sentence-transformers/all-mpnet-base-v2"
-    model_kwargs = {"device": "cuda"}
+    model_kwargs = {"device": "cpu"}
     embeddings = HuggingFaceEmbeddings(model_name=model_name, model_kwargs=model_kwargs)
 
     # Build the Chroma database with the document splits and embeddings
@@ -121,8 +121,10 @@ def build_database():
 def answer_query(query):
     # Get the vector representation for the user question
     model_name = "sentence-transformers/all-mpnet-base-v2"
-    model_kwargs = {"device": "cuda"}
+    model_kwargs = {"device": "cpu"}
+    print("B4 Call HuggingFaceEmbeddings")
     embeddings = HuggingFaceEmbeddings(model_name=model_name, model_kwargs=model_kwargs)
+    print("After Call HuggingFaceEmbeddings")
 
     db = Chroma( # Fetch the vector collection to compare against the question
         collection_name="web_docs",
@@ -147,8 +149,13 @@ def answer_query(query):
     
     chain = LLMChain(prompt=prompt, llm=llm)
     
-    result = chain({"question": query}, return_only_outputs=True)
+    answer = chain({"question": query}, return_only_outputs=True)
+    
+    print("result2", answer)
 
+    result = {}
+    result["answer"] = answer["text"]
+    result["sources"] = "LLM"
     return result
 
 
