@@ -104,7 +104,7 @@ def build_database():
 
     # Initialize the OpenAI embeddings
     model_name = "sentence-transformers/all-mpnet-base-v2"
-    model_kwargs = {"device": "cpu"}
+    model_kwargs = {"device": "cuda"}
     embeddings = HuggingFaceEmbeddings(model_name=model_name, model_kwargs=model_kwargs)
 
     # Build the Chroma database with the document splits and embeddings
@@ -121,7 +121,7 @@ def build_database():
 def answer_query(query):
     # Get the vector representation for the user question
     model_name = "sentence-transformers/all-mpnet-base-v2"
-    model_kwargs = {"device": "cpu"}
+    model_kwargs = {"device": "cuda"}
     embeddings = HuggingFaceEmbeddings(model_name=model_name, model_kwargs=model_kwargs)
 
     db = Chroma( # Fetch the vector collection to compare against the question
