@@ -19,8 +19,12 @@ def index(request):
         query = request.POST.get('query')
         # Process the query using the chatbot logic defined in `logic.py`.
         result = answer_query(query)
+        print("result1", result)
         # Return the chatbot's response as JSON.
-        return JsonResponse(result)
+        resultJson = JsonResponse(result)
+        print(resultJson)
+        print("return result")
+        return resultJson
     # For non-POST requests, render the chat interface template.
     return render(request, 'djangoapp/index.html')
 
