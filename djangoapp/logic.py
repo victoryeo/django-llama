@@ -3,12 +3,12 @@ from dotenv import load_dotenv
 from pathlib import Path
 from urllib.parse import urlparse
 from langchain.chains import RetrievalQAWithSourcesChain
+from langchain.chains import LLMChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.vectorstores import Chroma
 from langchain_community.llms import LlamaCpp
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 from langchain.embeddings import HuggingFaceEmbeddings
 from typing import Union, Optional, Any
 import requests
