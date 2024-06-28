@@ -136,6 +136,7 @@ def answer_query(query):
         model_path="djangoapp/models/llama-2-7b-chat.Q4_0.gguf",
         n_gpu_layers=40,
         n_batch=512,  # Batch size for model processing
+        n_ctx=2048,
         verbose=False,  # Enable detailed logging for debugging
     )
 
@@ -145,17 +146,38 @@ def answer_query(query):
 
     Answer:
     """
-    prompt = PromptTemplate(template=template, input_variables=["question"])
+    prompt_template = """
+    Question: {question} 
+    =========
+    Final Answer:
+    =========
+    {summaries}
+    """
+    prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
     
-    chain = LLMChain(prompt=prompt, llm=llm)
+    # chain = LLMChain(prompt=prompt, llm=llm)
+
+    chain = RetrievalQAWithSourcesChain.from_chain_type(
+        llm=llm,
+        chain_type="stuff",
+        retriever=db.as_retriever(),
+        chain_type_kwargs={"prompt": prompt}
+    )
     
     answer = chain({"question": query}, return_only_outputs=True)
     
     print("result2", answer)
 
     result = {}
-    result["answer"] = answer["text"]
-    result["sources"] = "LLM"
+    if "text" in result:
+      result["answer"] = answer["text"]
+    else:
+      result["answer"] = answer["answer"]
+    
+    if not answer["sources"]:
+      result["sources"] = 'LLM'
+    else:    
+      result["sources"] = answer["sources"]
     return result
 
 
