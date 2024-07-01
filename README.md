@@ -8,3 +8,4 @@ The core of this app lies in its ability to:
 - Scrape web content from the AWS documentation site.
 - Process and index this content into a searchable database using LangChain and Chroma.
 - Use Llama2 CPP to answer queries with info extracted from indexed content
+- Use open source Llama2 model
