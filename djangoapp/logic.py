@@ -161,7 +161,8 @@ def answer_query(query):
         llm=llm,
         chain_type="stuff",
         retriever=db.as_retriever(),
-        chain_type_kwargs={"prompt": prompt}
+        chain_type_kwargs={"prompt": prompt},
+        return_source_documents=True
     )
     
     answer = chain({"question": query}, return_only_outputs=True)
