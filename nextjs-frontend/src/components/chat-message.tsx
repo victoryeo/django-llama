@@ -3,8 +3,9 @@
 
 import { Message } from 'ai'
 
-import { cn } from '@/lib/utils'
-import { ChatMessageActions } from '@/components/chat-message-actions'
+import { cn } from '../lib/utils'
+import { IconOpenAI, IconUser } from '../components/ui/icons'
+import { ChatMessageActions } from '../components/chat-message-actions'
 
 export interface ChatMessageProps {
   message: Message
@@ -22,7 +23,7 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
           'bg-background'
         )}
       >
-        
+        <IconUser />
       </div>
       <div className="flex-1 px-1 ml-4 space-y-2 overflow-hidden">
 
