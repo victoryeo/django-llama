@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useChat, type Message } from 'ai/react'
 import { cn } from '../lib/utils'
 import { Dialog } from './ui/dialog'
@@ -16,6 +16,7 @@ export interface ChatProps extends React.ComponentProps<'div'> {
 
 export function Chat({ id, initialMessages }: ChatProps) {
   const router = useRouter()
+  const path = usePathname()
   const { messages, append, reload, stop, isLoading, input, setInput } = useChat({
     initialMessages,
     id,
@@ -32,7 +33,10 @@ export function Chat({ id, initialMessages }: ChatProps) {
       console.error('Error occured')
     },
     onFinish() {
-   
+      if (!path.includes('chat')) {
+        router.push(`/chat/${id}`, { shallow: true })
+        router.refresh()
+      }   
     } 
   })
 
