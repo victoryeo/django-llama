@@ -46,7 +46,7 @@ export function Chat({ id, initialMessages }: ChatProps) {
           </>
         ) : (
           <>
-            <EmptyScreen  />
+            <EmptyScreen setInput={setInput} />
           </>
         )}
       </div>
