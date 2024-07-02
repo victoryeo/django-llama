@@ -28,6 +28,9 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
         <p className="mb-2 leading-normal text-muted-foreground">
           Hi there! Ask questions!
         </p>
+        <p className="leading-normal text-muted-foreground">
+          You can start a conversation here or try the following examples:
+        </p>
         <div className="mt-4 flex flex-col items-start space-y-2">
           {exampleMessages.map((message, index) => (
             <Button
