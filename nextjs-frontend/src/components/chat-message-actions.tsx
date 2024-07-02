@@ -3,7 +3,8 @@
 import { type Message } from 'ai'
 
 import { Button } from './ui/button'
-import { cn } from '@/lib/utils'
+import { IconCheck, IconCopy } from './ui/icons'
+import { cn } from '../lib/utils'
 
 interface ChatMessageActionsProps extends React.ComponentProps<'div'> {
   message: Message
@@ -25,7 +26,7 @@ export function ChatMessageActions({
       {...props}
     >
       <Button variant="ghost" size="icon" >
-        
+        <IconCheck />
         <span className="sr-only">Copy message</span>
       </Button>
     </div>
