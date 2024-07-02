@@ -80,7 +80,8 @@ export function PromptForm({
         />
 
         <div className="absolute right-0 top-4 sm:right-4">
-        
+          <Tooltip>
+            <TooltipTrigger asChild>
               <Button
                 type="submit"
                 size="icon"
@@ -89,9 +90,10 @@ export function PromptForm({
                 <IconArrowElbow />
                 <span className="sr-only">Send message</span>
               </Button>
-     
+            </TooltipTrigger>
+            <TooltipContent>Send message</TooltipContent>
+          </Tooltip>
         </div>
-
       </div>
     </form>
   )
