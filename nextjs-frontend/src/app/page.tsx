@@ -1,9 +1,9 @@
-import Image from "next/image";
 import styles from "./page.module.css";
-import { Chat } from "@/components/chat";
+import { Chat } from "../components/chat";
+import { nanoid } from "../lib/utils";
 
 export default function Home() {
-  const id = "1"
+  const id = nanoid()
 
   return (
     <main className={styles.main}>
