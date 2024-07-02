@@ -34,6 +34,7 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
         <div className="mt-4 flex flex-col items-start space-y-2">
           {exampleMessages.map((message, index) => (
             <Button
+              size="super"
               key={index}
               variant="link"
               className="h-auto p-0 text-base"

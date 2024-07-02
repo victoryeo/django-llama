@@ -1,11 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useChat, type Message } from 'ai/react'
 import { cn } from '../lib/utils'
 import { Dialog } from './ui/dialog'
 import { ChatList } from './chat-list'
 import { ChatScrollAnchor } from './chat-scroll-anchor'
+import { useLocalStorage } from '../lib/hooks/use-local-storage'
 import { EmptyScreen } from './empty-screen'
 import { ChatPanel } from './chat-panel'
 
@@ -14,44 +16,49 @@ export interface ChatProps extends React.ComponentProps<'div'> {
   id?: string
 }
 
-export function Chat({ id, initialMessages }: ChatProps) {
+export function Chat({ id, initialMessages, className }: ChatProps) {
   const router = useRouter()
   const path = usePathname()
-  const { messages, append, reload, stop, isLoading, input, setInput } = useChat({
-    initialMessages,
-    id,
-    body: {
+  const [previewToken, setPreviewToken] = useLocalStorage<string | null>(
+    'ai-token',
+    null
+  )
+  const [previewTokenDialog, setPreviewTokenDialog] = useState("true")
+  const [previewTokenInput, setPreviewTokenInput] = useState(previewToken ?? '')
+  const { messages, append, reload, stop, isLoading, input, setInput } =
+    useChat({
+      initialMessages,
       id,
-     
-    },
-    onResponse(response) {
-      if (response.status === 401) {
-        console.error(response.statusText)
+      body: {
+        id,
+        previewToken
+      },
+      onResponse(response) {
+        if (response.status === 401) {
+          console.error(response.statusText)
+        }
+      },
+      onError() {
+        console.error('Error occured')
+      },
+      onFinish() {
+        if (!path.includes('chat')) {
+          router.push(`/chat/${id}`, { shallow: true })
+          router.refresh()
+        }
       }
-    },
-    onError() {
-      console.error('Error occured')
-    },
-    onFinish() {
-      if (!path.includes('chat')) {
-        router.push(`/chat/${id}`, { shallow: true })
-        router.refresh()
-      }   
-    } 
-  })
-
+      // api:  // defaults to '/api/chat'
+    })
   return (
     <>
-      <div className={cn('pb-[200px] pt-4 md:pt-10')}>
+      <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
         {messages.length ? (
           <>
             <ChatList messages={messages} />
             <ChatScrollAnchor trackVisibility={isLoading} />
           </>
         ) : (
-          <>
-            <EmptyScreen setInput={setInput} />
-          </>
+          <EmptyScreen setInput={setInput} />
         )}
       </div>
       <ChatPanel
@@ -64,9 +71,9 @@ export function Chat({ id, initialMessages }: ChatProps) {
         input={input}
         setInput={setInput}
       />
-      <Dialog>
-        
-      </Dialog>
+
+      {/* only for preview env */}
+
     </>
   )
 }
