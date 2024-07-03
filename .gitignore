@@ -45,3 +45,5 @@ pyenv.cfg
 *.bin
 *.pickle
 
+node_modules/
+
