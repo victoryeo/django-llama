@@ -131,6 +131,10 @@ def answer_query(query):
         embedding_function=embeddings,
         persist_directory=CHROMA_DB_DIRECTORY
     )
+
+    dirspot = os.getcwd()
+    print(dirspot)
+
     # Load the LlamaCpp language model, adjust GPU usage based on your hardware
     llm = LlamaCpp(
         model_path="djangoapp/models/llama-2-7b-chat.Q4_0.gguf",
