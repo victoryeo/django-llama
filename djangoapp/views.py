@@ -3,8 +3,9 @@ from django.shortcuts import render
 # Import custom logic functions
 from .logic import answer_query, build_database, database_exists
 import threading
+from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 def index(request):
     """
     The main view that handles user queries and displays the chat interface.
@@ -28,6 +29,7 @@ def index(request):
     # For non-POST requests, render the chat interface template.
     return render(request, 'djangoapp/index.html')
 
+@csrf_exempt
 def db_status(request):
     """
     A view to check the status of the database.
@@ -46,7 +48,7 @@ def db_status(request):
     # Return the status as a JSON response.
     return JsonResponse(status)
 
-
+@csrf_exempt
 def build_db(request):
     """
     A view to initiate the asynchronous building of the database.
