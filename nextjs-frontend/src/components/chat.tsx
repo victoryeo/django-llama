@@ -10,6 +10,7 @@ import { ChatScrollAnchor } from './chat-scroll-anchor'
 import { useLocalStorage } from '../lib/hooks/use-local-storage'
 import { EmptyScreen } from './empty-screen'
 import { ChatPanel } from './chat-panel'
+import { ButtonScrollToBottom } from './buton-scroll-to-bottom'
 
 export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
@@ -51,7 +52,10 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     })
   return (
     <>
-      <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
+      <div className={cn('pb-[100px] pt-4 md:pt-10', className)}>
+        {/* accessibility */}
+        <ButtonScrollToBottom />
+
         {messages.length ? (
           <>
             <ChatList messages={messages} />

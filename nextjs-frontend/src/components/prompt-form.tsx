@@ -1,6 +1,5 @@
 import { UseChatHelpers } from 'ai/react'
 import * as React from 'react'
-import Textarea from 'react-textarea-autosize'
 import { useRouter } from 'next/navigation'
 
 import { Button, buttonVariants } from './ui/button'
@@ -47,7 +46,21 @@ export function PromptForm({
       }}
       ref={formRef}
     >
-      <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background px-8 sm:rounded-md sm:border sm:px-12">
+      <textarea
+        ref={inputRef}
+        tabIndex={0}
+        min-height="200px"
+        onKeyDown={onKeyDown}
+        rows={20}
+        cols={40}
+        value={input}
+        onChange={e => setInput(e.target.value)}
+        placeholder=
+        "Type a question. &#10; Press Enter to send."
+        spellCheck={false}
+        className="min-h-[1000px] w-full bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
+      />
+      <div className="">
         <Tooltip>
           <TooltipTrigger asChild>
             <button
@@ -67,17 +80,7 @@ export function PromptForm({
           </TooltipTrigger>
           <TooltipContent>New Chat</TooltipContent>
         </Tooltip>
-        <Textarea
-          ref={inputRef}
-          tabIndex={0}
-          onKeyDown={onKeyDown}
-          rows={1}
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          placeholder="Send a message."
-          spellCheck={false}
-          className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
-        />
+        
         <div className="absolute right-0 top-4 sm:right-4">
           <Tooltip>
             <TooltipTrigger asChild>
