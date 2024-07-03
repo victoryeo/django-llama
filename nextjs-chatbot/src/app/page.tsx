@@ -22,7 +22,7 @@ export default function Home() {
     {
       id: "2",
       role: MessageRole.ASSISTANT,
-      message: "I am a LLM ChatBOT..",
+      message: "I am a LLM ChatBoT..",
     },
   ]);
 
