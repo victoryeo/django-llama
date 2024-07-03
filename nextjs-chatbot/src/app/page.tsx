@@ -15,9 +15,14 @@ export default function Home() {
   const [chatConversations, setChatConversations] = useState<Conversations>([
     {
       id: "1",
+      role: MessageRole.USER,
+      message: "Who are you?",
+      userInfo: TEST_USER_INFO,
+    },
+    {
+      id: "2",
       role: MessageRole.ASSISTANT,
-      message:
-        "I am a LLM ChatBOT..",
+      message: "I am a LLM ChatBOT..",
     },
   ]);
 
