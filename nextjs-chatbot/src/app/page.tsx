@@ -21,6 +21,28 @@ export default function Home() {
     },
   ]);
 
+  const sendBtn  = async (data: string) => {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        console.error("Response error");
+        return "Response error"
+      }
+
+      return res.json();
+    } catch (error) {
+      console.error("Failed to get response from server");
+      return "Failed to get response from server"
+    }
+  }
+
   const handleSubmit = useCallback((value: string) => {
     setIsQuerying(true);
     setChatConversations((conversations) => [
@@ -32,7 +54,20 @@ export default function Home() {
         message: value,
       },
     ]);
-    setTimeout(() => {
+    
+    sendBtn(value).then((response) => {
+      setIsQuerying(false);
+      setChatConversations((conversations) => [
+        ...conversations,
+        {
+          id: (conversations.length + 1).toString(),
+          role: MessageRole.ASSISTANT,
+          message: response,
+        },
+      ]);
+    })
+
+    /*setTimeout(() => {
       setIsQuerying(false);
       setChatConversations((conversations) => [
         ...conversations,
@@ -42,7 +77,7 @@ export default function Home() {
           message: "This is a mocked sample LLM ChatBot response",
         },
       ]);
-    }, 3000);
+    }, 3000); */
   }, []);
 
   return (
