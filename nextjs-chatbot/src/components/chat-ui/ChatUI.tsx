@@ -20,7 +20,7 @@ export const ChatUI = ({
       <div
         ref={chatConversationsContainerRef}
         className="flex w-full justify-center overflow-y-auto pb-8"
-        style={{ maxHeight: "calc(100vh - 250px)" }}
+        style={{ maxHeight: "calc(120vh - 250px)" }}
       >
         <ChatConversations
           conversations={conversations}
