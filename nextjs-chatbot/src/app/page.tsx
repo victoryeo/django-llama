@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMailReply } from "@fortawesome/free-solid-svg-icons";
 import styles from "./page.module.css";
 
-const TEST_USER_INFO = { firstName: "Test", lastName: "User" };
+const TEST_USER_INFO = { firstName: "First", lastName: "User" };
 
 export default function Home() {
   const [isQuerying, setIsQuerying] = useState<boolean>(false);
@@ -26,7 +26,7 @@ export default function Home() {
     setChatConversations((conversations) => [
       ...conversations,
       {
-        userInfo: TEST_USER_INFO,
+        //userInfo: TEST_USER_INFO,
         id: (conversations.length + 1).toString(),
         role: MessageRole.USER,
         message: value,
@@ -39,7 +39,7 @@ export default function Home() {
         {
           id: (conversations.length + 1).toString(),
           role: MessageRole.ASSISTANT,
-          message: "This is a mocked sample chat bot assistant response",
+          message: "This is a mocked sample LLM ChatBot response",
         },
       ]);
     }, 3000);
@@ -49,7 +49,7 @@ export default function Home() {
     <ChatUI
       isQuerying={isQuerying}
       onSubmit={handleSubmit}
-      placeholder="Type here to interact with this demo"
+      placeholder="Type here to interact with LLM ChatBot"
       disabled={isQuerying}
       conversations={chatConversations}
       customSubmitIcon={<FontAwesomeIcon icon={faMailReply} />}

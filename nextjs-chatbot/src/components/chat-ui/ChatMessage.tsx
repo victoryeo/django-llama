@@ -32,7 +32,7 @@ export const ChatMessage = ({ message }: IChatMessageProps) => {
             )}
           </div>
         </Avatar>
-        <h4 className="font-semibold select-none">{isBot ? "Robot" : "You"}</h4>
+        <h4 className="font-semibold select-none">{isBot ? "LLMBot" : "You"}</h4>
       </div>
       <div className="ml-16 mt-4">
         <div ref={messageRef}>{message.message}</div>
