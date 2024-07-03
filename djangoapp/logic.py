@@ -168,6 +168,8 @@ def answer_query(query):
         chain_type_kwargs={"prompt": prompt},
         return_source_documents=True
     )
+
+    print("query", query)
     
     answer = chain({"question": query}, return_only_outputs=True)
     

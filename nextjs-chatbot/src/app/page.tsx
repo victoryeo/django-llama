@@ -23,6 +23,7 @@ export default function Home() {
 
   const sendBtn  = async (data: string) => {
     try {
+      console.log("data", data)
       const res = await fetch("http://127.0.0.1:8000/", {
         method: "POST",
         headers: {
@@ -35,7 +36,7 @@ export default function Home() {
         console.error("Response error");
         return "Response error"
       }
-
+      console.log(res)
       return res.json();
     } catch (error) {
       console.error("Failed to get response from server");
@@ -56,13 +57,14 @@ export default function Home() {
     ]);
     
     sendBtn(value).then((response) => {
+      console.log(response)
       setIsQuerying(false);
       setChatConversations((conversations) => [
         ...conversations,
         {
           id: (conversations.length + 1).toString(),
           role: MessageRole.ASSISTANT,
-          message: response,
+          message: response?.answer,
         },
       ]);
     })

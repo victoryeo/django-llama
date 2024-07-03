@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .logic import answer_query, build_database, database_exists
 import threading
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 @csrf_exempt
 def index(request):
@@ -18,6 +19,10 @@ def index(request):
     if request.method == 'POST':
         # Extract the user's query from the POST data.
         query = request.POST.get('query')
+        if not query:
+            body = json.loads(request.body)
+            print("body", body)
+            query = body
         # Process the query using the chatbot logic defined in `logic.py`.
         result = answer_query(query)
         print("result1", result)
