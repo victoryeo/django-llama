@@ -9,6 +9,7 @@ import { Avatar, Button } from "react-daisyui";
 import { IChatMessageProps } from "../../types";
 import { MessageRole } from "../../types/MessageRoles";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import "./chat.css"
 
 export const ChatMessage = ({ message }: IChatMessageProps) => {
   const messageRef = useRef<HTMLDivElement>(null);
@@ -35,7 +36,10 @@ export const ChatMessage = ({ message }: IChatMessageProps) => {
         <h4 className="font-semibold select-none">{isBot ? "LLMBot" : "You"}</h4>
       </div>
       <div className="ml-16 mt-4">
-        <div ref={messageRef}>{message.message}</div>
+        {isBot ?
+          <div className="listBlock" ref={messageRef}>&nbsp;{message.message}</div>
+          : <div ref={messageRef}>{message.message}</div>
+        }
         {isBot && (
           <div className="mt-4">
             <Button size="sm" shape="square" color="ghost">
