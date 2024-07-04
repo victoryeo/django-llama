@@ -9,3 +9,6 @@ The core of this app lies in its ability to:
 - Process and index this content into a searchable database using LangChain and Chroma.
 - Use Llama2 CPP to answer queries with info extracted from indexed content
 - Use open source Llama2 model
+
+## Frontend
+The frontend is built using NextJS. It is in nextjs-chatbot.
