@@ -7,11 +7,14 @@ export default function Home() {
 
   return (
     <>
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
+      <div className="max-w-screen-xl items-center ">
         <Navbar />
-        <h1 className="text-3xl font-bold underline">
+        <h1 className="text-3xl font-bold underline body">
           Virtual classroom
         </h1>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          
+        </div>
       </div>
     </>
   );
