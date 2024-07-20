@@ -36,6 +36,14 @@ export const Features = () => {
       </div>
       <div className='lowerFeature'><a href="/">Drawing</a>
       </div>
+      <div className='lowerFeature'>
+      </div>
+      <div className='lowerFeature'>
+      </div>
+      <div className='lowerFeature'>
+      </div>
+      <div className='lowerFeature'>
+      </div>
     </div>
   )
 }
