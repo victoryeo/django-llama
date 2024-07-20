@@ -11,51 +11,51 @@ export const Categories = () => {
 
   return (
     <div className="grid grid-rows-2 md:grid-cols-4 gap-4 font-semibold px-4">
-      <div style={{ backgroundColor: "#ddd"}}>
+      <div>
         <a href='/'>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt=""/>
+          <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt=""/>
         Design
         </a>
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>
+      <div>
         <a href='/'>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt=""/>
+          <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt=""/>
         Development
         </a>
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>
+      <div>
         <a href='/'>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt=""/>
+          <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt=""/>
         Marketing
         </a>
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>
+      <div>
         <a href='/'>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt=""/>
+          <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt=""/>
         IT and Software
         </a>
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>
+      <div style={{ backgroundColor: "#fff" }}>
         <a href='/'>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt=""/>
+          <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt=""/>
         Personal Development
         </a>
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>
+      <div style={{ backgroundColor: "#fff" }}>
         <a href='/'>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt=""/>
+          <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt=""/>
         Business
         </a>
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>
+      <div style={{ backgroundColor: "#fff" }}>
         <a href='/'>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt=""/>
+          <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt=""/>
         Music
         </a>
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>
+      <div style={{ backgroundColor: "#fff" }}>
         <a href='/'>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt=""/>
+          <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt=""/>
         Photography
         </a>
       </div>
