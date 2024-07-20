@@ -10,8 +10,10 @@ export const Pagefooter = () => {
   const pathname = usePathname()
 
   return (
-    <div className="grid grid-rows-2 md:grid-cols-4 gap-y-4 px-4"
+    <div className="grid grid-rows-2 md:grid-cols-5 gap-y-4 px-4"
       style={{ backgroundColor: "#000" }}>
+      <div className='pagefooter'>
+      </div>
       <div className='pagefooter'>
       </div>
       <div className='pagefooter'>
@@ -28,11 +30,15 @@ export const Pagefooter = () => {
       </div>
       <div className='pagefooter'>
       </div>
+      <div className='pagefooter text-right px-10'><a href="/">Language</a>
+      </div>
       <div className='pagefooter'><a href="/">Teach</a>
       </div>
       <div className='pagefooter'><a href="/">Blog</a>
       </div>
       <div className='pagefooter'><a href="/">Privacy policy</a>
+      </div>
+      <div className='pagefooter'>
       </div>
       <div className='pagefooter'>
       </div>
@@ -44,6 +50,8 @@ export const Pagefooter = () => {
       </div>
       <div className='pagefooter'>
       </div>
+      <div className='pagefooter'>
+      </div>
       <div className='pagefooter'><a href="/">PMP</a>
       </div>
       <div className='pagefooter'><a href="/">Ethical Hacking</a>
@@ -52,6 +60,47 @@ export const Pagefooter = () => {
       </div>
       <div className='pagefooter'>
       </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+        <Image
+          src="/vercel.svg"
+          alt="Vercel Logo"
+          className="dark:invert"
+          width={100}
+          height={24}
+          priority
+        />
+
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter text-right px-10'>@2024 Vercel, Inc.
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>
+      <div className='pagefooter'>
+      </div>      
     </div>
   )
 }
