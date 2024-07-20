@@ -2,7 +2,6 @@ import React from "react";
 import { images } from "../../utils/carousel/constants";
 import left from "../../../../public/left.svg";
 import right from "../../../../public/right.svg";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 type Props = {
