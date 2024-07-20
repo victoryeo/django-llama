@@ -5,6 +5,7 @@ import { Navbar } from "../libs/ui/component/navbar";
 import { Categories } from "../libs/ui/component/categories";
 import { Features } from "../libs/ui/component/features";
 import { Pagefooter } from "../libs/ui/component/pagefooter";
+import  Slider  from "../libs/ui/component/slider";
 
 export default function Home() {
 
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <div className="">
         <Navbar />
+        <Slider />
         <div className="lowerBody">
           <h1 className="text-3xl font-bold  body px-4 py-4">
             Top categories
