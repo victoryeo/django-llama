@@ -91,6 +91,10 @@ nav {
   height: 56px;
 }
 
+.search {
+  width: 700px;
+}
+
 .lang-info button.btn {
   padding: 5px;
   width: 44px;
