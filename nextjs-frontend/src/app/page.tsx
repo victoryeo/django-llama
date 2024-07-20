@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Navbar } from "../libs/ui/component/navbar";
 import { Categories } from "../libs/ui/component/categories";
+import { Features } from "../libs/ui/component/Features";
 
 export default function Home() {
 
@@ -18,6 +19,10 @@ export default function Home() {
             <Categories />  
           </div>
         </div>
+        <h1 className="text-3xl font-bold  body">
+          &nbsp;
+        </h1>
+        <Features />
       </div>
     </>
   );
