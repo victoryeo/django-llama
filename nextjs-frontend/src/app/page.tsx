@@ -20,7 +20,7 @@ export default function Home() {
             <Categories />  
           </div>
         </div>
-        <h1 className="text-3xl font-bold  body">
+        <h1 className="text-3xl font-bold body bg-white">
           &nbsp;
         </h1>
         <Features />
