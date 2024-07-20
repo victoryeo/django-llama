@@ -40,6 +40,13 @@ body {
   color: black;
 }
 
+.lowerFooter {
+  padding-left: 0px;
+  background: #ddd;
+  color: purple;
+  text-decoration: underline;
+}
+
 .app {
   margin: 0;
   padding: 0;
