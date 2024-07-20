@@ -40,7 +40,13 @@ body {
   color: black;
 }
 
-.lowerFooter {
+.upperFeature {
+  padding-left: 0px;
+  background: #ddd;
+  color: black;
+}
+
+.lowerFeature {
   padding-left: 0px;
   background: #ddd;
   color: purple;

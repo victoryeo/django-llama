@@ -10,22 +10,31 @@ export const Features = () => {
   const pathname = usePathname()
 
   return (
-    <div className="grid grid-rows-2 md:grid-cols-4 gap-0">
-      <div style={{ backgroundColor: "#ddd" }}>Development
+    <div className="grid grid-rows-2 md:grid-cols-4 gap-y-4"
+      style={{ backgroundColor: "#ddd" }}>
+      <div className='upperFeature font-bold'>Development
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>Business
+      <div className='upperFeature font-bold'>Business
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>IT and Software
+      <div className='upperFeature font-bold'>IT and Software
       </div>
-      <div style={{ backgroundColor: "#ddd" }}>Design
+      <div className='upperFeature font-bold'>Design
       </div>
-      <div className='lowerFooter'><a href="/">Python</a>
+      <div className='lowerFeature'><a href="/">Python</a>
       </div>
-      <div className='lowerFooter'><a href="/">Financial Analysis</a>
+      <div className='lowerFeature'><a href="/">Financial Analysis</a>
       </div>
-      <div className='lowerFooter'><a href="/">Amazon AWS</a>
+      <div className='lowerFeature'><a href="/">Amazon AWS</a>
       </div>
-      <div className='lowerFooter'><a href="/">Photoshop</a>
+      <div className='lowerFeature'><a href="/">Photoshop</a>
+      </div>
+      <div className='lowerFeature'><a href="/">Web Development</a>
+      </div>
+      <div className='lowerFooter'><a href="/">PMP</a>
+      </div>
+      <div className='lowerFooter'><a href="/">Ethical Hacking</a>
+      </div>
+      <div className='lowerFooter'><a href="/">Drawing</a>
       </div>
     </div>
   )
