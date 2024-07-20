@@ -2,18 +2,21 @@
 
 import Image from "next/image";
 import { Navbar } from "../libs/ui/component/navbar";
+import { Categories } from "../libs/ui/component/categories";
 
 export default function Home() {
 
   return (
     <>
-      <div className="max-w-screen-xl items-center ">
+      <div className="">
         <Navbar />
-        <h1 className="text-3xl font-bold underline body">
-          Virtual classroom
-        </h1>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          
+        <div className="lowerBody">
+          <h1 className="text-3xl font-bold  body">
+            Top categories
+          </h1>
+          <div className="">
+            <Categories />  
+          </div>
         </div>
       </div>
     </>
