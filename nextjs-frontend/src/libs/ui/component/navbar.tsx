@@ -31,7 +31,7 @@ export const Navbar = () => {
                 Categories</a>
             </li>
             <li>
-              <Search placeholder="Search..." />
+              <Search placeholder="Search for anything..." />
             </li>
             <li>
               <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
@@ -49,6 +49,7 @@ export const Navbar = () => {
         </div>
        </div>
 
+      <div className="nav-right">
       <button   
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={() => router.push('/login')}
@@ -59,7 +60,7 @@ export const Navbar = () => {
       <span className="bg-transparent text-blue-700 font-semibold hover:text-white py-2 px-4 hover:border-transparent rounded"></span>
 
       <img src="/info.svg" alt="login" />
-
+      </div>
     </nav>
   );
 };
