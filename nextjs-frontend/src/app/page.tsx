@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Navbar } from "../libs/ui/component/navbar";
 import { Categories } from "../libs/ui/component/categories";
-import { Features } from "../libs/ui/component/Features";
+import { Features } from "../libs/ui/component/features";
 
 export default function Home() {
 
