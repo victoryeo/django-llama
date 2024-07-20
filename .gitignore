@@ -10,7 +10,6 @@ __pycache__/
 # Virtualenv
 venv/
 bin*
-lib*
 include*
 history*
 
