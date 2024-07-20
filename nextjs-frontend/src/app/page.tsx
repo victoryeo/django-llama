@@ -13,7 +13,7 @@ export default function Home() {
       <div className="">
         <Navbar />
         <div className="lowerBody">
-          <h1 className="text-3xl font-bold  body">
+          <h1 className="text-3xl font-bold  body px-4 py-4">
             Top categories
           </h1>
           <div className="">
