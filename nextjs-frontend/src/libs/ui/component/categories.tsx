@@ -10,7 +10,7 @@ export const Categories = () => {
   const pathname = usePathname()
 
   return (
-    <div className="grid grid-rows-2 md:grid-cols-4 gap-4 font-semibold">
+    <div className="grid grid-rows-2 md:grid-cols-4 gap-4 font-semibold px-4">
       <div style={{ backgroundColor: "#ddd"}}>
         <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt=""/>
         Design
