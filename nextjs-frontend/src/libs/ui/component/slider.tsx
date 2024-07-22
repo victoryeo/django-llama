@@ -21,7 +21,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="grid place-items-center md:grid-cols-2 grid-cols-1 w-full mx-auto max-w-8xl px-4"
+    <div className="grid place-items-center md:grid-cols-2 grid-cols-1 w-full mx-auto max-w-8xl px-8"
       style={{ backgroundColor: "#fff" }}>
       <div
         className={`w-full flex justify-center items-center gap-4 transition-transform ease-in-out duration-500 md:rounded-2xl p-6 md:p-0`}
@@ -30,7 +30,7 @@ const Slider = () => {
           <div
             key={idx}
             className={`${idx === activeImage
-                ? "block w-full h-[80vh] object-cover transition-all duration-500 ease-in-out"
+                ? "block w-full h-[50vh] object-cover transition-all duration-500 ease-in-out"
                 : "hidden"
               }`}
           >

@@ -20,7 +20,7 @@ const Description = ({ activeImage, clickNext, clickPrev }: Props) => {
         <div
           key={idx}
           className={`${idx === activeImage
-              ? "block w-full h-full md:h-[80vh] py-10 md:px-20 px-10 text-left"
+              ? "block w-full h-full md:h-[50vh] py-10 md:px-20 px-10 text-left"
               : "hidden"
             }`}
         >
