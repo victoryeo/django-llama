@@ -1,4 +1,5 @@
 import { Navbar } from "../../libs/ui/component/navbar";
+import { ForgotPassword } from "@/libs/ui/component/forgotpassword";
 
 export default function Page() {
 
@@ -6,7 +7,7 @@ export default function Page() {
     <>
        <div className="">
         <Navbar />
-        
+        <ForgotPassword />
         </div>
     </>
   );
