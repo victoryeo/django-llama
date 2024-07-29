@@ -1,16 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useContext} from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { signOut } from 'next-auth/react';
 import Search from './search';
+import { LoginContext, LoginContextType } from './login';
 
 export const Navbar = () => {
   const router = useRouter()
   const pathname = usePathname()
 
+  let { login, saveLogin } = useContext(LoginContext) as LoginContextType
+  console.log(login)
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-normal p-4">
@@ -50,18 +53,27 @@ export const Navbar = () => {
        </div>
 
       <div className="nav-right">
-      <button   
+      { !login.isLogin && <button   
         className="mr-2 bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={() => router.push('/signup')}
       >
         Sign-up
       </button>
+      }
       <button   
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={() => router.push('/login')}
       >
         Login
       </button>
+
+      { login.isLogin && <button   
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        onClick={() => router.push('/logout')}
+      >
+        Logout
+      </button>
+      }
 
       <span className="bg-transparent text-blue-700 font-semibold hover:text-white py-2 px-4 hover:border-transparent rounded"></span>
 
