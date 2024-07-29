@@ -13,6 +13,7 @@ export const Signup = () => {
   const handleSignup = async (e: any) => {
     e.preventDefault() // prevents page reload
     alert(`${fullname} have signed up!`)
+    router.push('/login')
   }
 
   return (
