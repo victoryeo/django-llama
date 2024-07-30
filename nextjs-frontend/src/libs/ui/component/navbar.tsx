@@ -6,13 +6,15 @@ import { useRouter, usePathname } from 'next/navigation';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { signOut } from 'next-auth/react';
 import Search from './search';
-import { LoginContext, LoginContextType } from './login';
+//import { LoginContext, LoginContextType } from './login';
+import { useAuthContext } from '@/libs/ui/providers/AuthContext'
 
 export const Navbar = () => {
   const router = useRouter()
   const pathname = usePathname()
 
-  let { login, saveLogin } = useContext(LoginContext) as LoginContextType
+  //let { login, saveLogin } = useContext(LoginContext) as LoginContextType
+  const { isLogin, login, logout } = useAuthContext();
   console.log(login)
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -53,21 +55,22 @@ export const Navbar = () => {
        </div>
 
       <div className="nav-right">
-      { !login.isLogin && <button   
+      { !isLogin && <button   
         className="mr-2 bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={() => router.push('/signup')}
       >
         Sign-up
       </button>
       }
-      <button   
+      { !isLogin && <button   
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={() => router.push('/login')}
       >
         Login
       </button>
+      }
 
-      { login.isLogin && <button   
+      { isLogin && <button   
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={() => router.push('/logout')}
       >

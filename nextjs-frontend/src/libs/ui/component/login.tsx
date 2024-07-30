@@ -4,7 +4,9 @@ import React, { useState, createContext, useContext } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link'
+import { useAuthContext } from '@/libs/ui/providers/AuthContext'
 
+/*
 export interface ILogin {
   email: string;
   isLogin: boolean;
@@ -18,30 +20,32 @@ export type LoginContextType = {
 export const LoginContext = createContext<LoginContextType>({
   login: {email:"", isLogin:false},
   saveLogin: () => {}
-});
+});*/
 
 export const Login = () => {
   const router = useRouter()
   const pathname = usePathname()
+  const { isLogin, login, logout } = useAuthContext();
+
   const [email, setEmail] = useState('')
-  const [login, setLogin] = useState<ILogin>({email:"", isLogin: false});
+  /*const [login, setLogin] = useState<ILogin>({email:"", isLogin: false});
   const saveLogin = (todo: ILogin) => {
     const newTodo: ILogin = {
       email: todo.email,
       isLogin: todo.isLogin,
     }
     setLogin(newTodo)
-  }
+  }*/
   
   const handleLogin = async (e: any) => {
     e.preventDefault() // prevents page reload
     alert(`${email} have login!`)
-    saveLogin({email: `${email}`, isLogin: true})
+    login()
     router.push('/lmshome')
   }
 
   return (
-    <LoginContext.Provider value={{ login, saveLogin }}>
+    //<LoginContext.Provider value={{ login, saveLogin }}>
     <div className="grid grid-rows-2 md:grid-cols-2 gap-y-4 gap-x-4 px-40"
       style={{ backgroundColor: "#ffffff" }}>
         <div>
@@ -83,6 +87,6 @@ export const Login = () => {
         
       </div>
     </div>
-    </LoginContext.Provider>
+    //</LoginContext.Provider>
   )
 }
