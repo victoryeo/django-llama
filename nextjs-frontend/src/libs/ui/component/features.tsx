@@ -10,8 +10,16 @@ export const Features = () => {
   const pathname = usePathname()
 
   return (
-    <div className="grid grid-rows-2 md:grid-cols-4 gap-y-4 px-4"
+    <div className="grid grid-rows-4 md:grid-cols-4 gap-y-4 px-4"
       style={{ backgroundColor: "#ddd" }}>
+      <div className='upperFeature'>
+      </div>
+      <div className='upperFeature'>
+      </div>
+      <div className='upperFeature'>
+      </div>
+      <div className='upperFeature'>
+      </div>
       <div className='upperFeature font-bold'>Development
       </div>
       <div className='upperFeature font-bold'>Business
