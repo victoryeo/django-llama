@@ -28,7 +28,7 @@ const Description = ({ activeImage, clickNext, clickPrev }: Props) => {
           <div className="py-16 text-5xl font-extrabold">
             {elem.title}
           </div>
-          <div className="leading-relaxed font-medium text-base tracking-wide h-60 md:h-40 italic text-gray-600">
+          <div className="leading-relaxed font-medium text-base tracking-wide h-50 md:h-30 italic text-gray-600">
             {" "}
             {elem.desc}
           </div>
@@ -38,14 +38,14 @@ const Description = ({ activeImage, clickNext, clickPrev }: Props) => {
           </button>
           <div className="absolute md:bottom-1 bottom-10 right-10 md:right-0 w-full flex justify-center items-center">
             <div
-              className="absolute bottom-2 right-10 cursor-pointer"
+              className="absolute bottom-4 right-12 cursor-pointer"
               onClick={clickPrev}
             >
               <Image src={left} alt="" />
             </div>
 
             <div
-              className="absolute bottom-2 right-2 cursor-pointer"
+              className="absolute bottom-4 right-4 cursor-pointer"
               onClick={clickNext}
             >
               <Image src={right} alt="" />
