@@ -5,7 +5,7 @@ import { signIn, auth, providerMap } from "@/libs/auth"
 import { AuthError } from "next-auth"
 import { redirect } from "next/navigation"
 
-const SIGNIN_ERROR_URL = "errortwo"
+const SIGNIN_ERROR_URL = "errorpage"
 
 export const Signin = () => {
 
