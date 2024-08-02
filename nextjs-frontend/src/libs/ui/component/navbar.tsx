@@ -64,7 +64,7 @@ export const Navbar = () => {
       }
       { !isLogin && <button   
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        onClick={() => router.push('/login')}
+        onClick={() => router.push('/signin')}
       >
         Login
       </button>
