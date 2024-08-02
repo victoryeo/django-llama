@@ -28,6 +28,7 @@ export const Signin = () => {
             </div>
             {Object.values(providerMap).map((provider) => (
                 <form
+                key="{provider.id}"
                 action={async () => {
                 "use server"
                 try {
@@ -49,10 +50,10 @@ export const Signin = () => {
                 }}
                 >
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                <span>Sign in with {provider.name}</span>
-            </button>
-            </form>    
-        ))}
+                    <span>Sign in with {provider.name}</span>
+                </button>
+                </form>    
+            ))}
         </div>
       </div>
     </div>        
