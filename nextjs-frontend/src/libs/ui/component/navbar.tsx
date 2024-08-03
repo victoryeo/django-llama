@@ -10,11 +10,16 @@ import Search from './search';
 import { useLoginContext } from '@/libs/ui/providers/LoginContext'
 import { useSession } from "next-auth/react"
 import { User } from "@/libs/auth.config"
+import { Session } from 'next-auth';
 
-export const Navbar = () => {
+type Props = {
+  session : Session | null;
+}
+
+export const Navbar = ({session} : Props) => {
   const router = useRouter()
   const pathname = usePathname()
-  const { data: session, update } = useSession()
+  //const { data: session, update } = useSession()
   const [user, setUser] = useState<User>({} as User)
   console.log("sessionme", session);
 
