@@ -16,7 +16,7 @@ export const Navbar = () => {
   const pathname = usePathname()
   const { data: session, update } = useSession()
   const [user, setUser] = useState<User>({} as User)
-  console.log(session);
+  console.log("sessionme", session);
 
   useEffect(() => {
     if(session && session.user) 
