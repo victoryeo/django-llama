@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import { Navbar } from "../libs/ui/component/navbar";
 import { Categories } from "../libs/ui/component/categories";
