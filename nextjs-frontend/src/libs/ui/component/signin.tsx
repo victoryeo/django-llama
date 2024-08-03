@@ -1,14 +1,17 @@
 
 
 import React, { useState } from 'react';
-import { signIn, auth, providerMap } from "@/libs/auth"
+import { signIn, auth } from "@/libs/auth"
+import { providerMap } from '@/libs/auth.config';
 import { AuthError } from "next-auth"
 import { redirect } from "next/navigation"
 
 const SIGNIN_ERROR_URL = "errorpage"
 
 export const Signin = () => {
-
+    Object.values(providerMap).map((provider) => (
+        console.log(provider.id)
+    ))
     return (
     <div className="grid grid-rows-2 md:grid-cols-2 gap-y-4 gap-x-4 px-40"
       style={{ backgroundColor: "#ffffff" }}>
@@ -26,9 +29,9 @@ export const Signin = () => {
             <div>
                 <label htmlFor="space" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
             </div>
-            {Object.values(providerMap).map((provider) => (
+            {Object.values(providerMap).map((provider, i) => (
                 <form
-                key="{provider.id}"
+                key={i}
                 action={async () => {
                 "use server"
                 try {
