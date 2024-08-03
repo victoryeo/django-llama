@@ -1,21 +1,34 @@
 'use client';
 
-import React, { useContext} from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { signOut } from 'next-auth/react';
 import Search from './search';
 //import { LoginContext, LoginContextType } from './login';
-import { useAuthContext } from '@/libs/ui/providers/AuthContext'
+import { useLoginContext } from '@/libs/ui/providers/LoginContext'
+import { useSession } from "next-auth/react"
+import { User } from "@/libs/auth.config"
 
 export const Navbar = () => {
   const router = useRouter()
   const pathname = usePathname()
+  const { data: session, update } = useSession()
+  const [user, setUser] = useState<User>({} as User)
+  console.log(session);
+
+  useEffect(() => {
+    if(session && session.user) 
+      {
+        setUser(session.user as User)
+        console.log(session.user)
+      }
+  }, [session])
 
   //let { login, saveLogin } = useContext(LoginContext) as LoginContextType
-  const { isLogin, login, logout } = useAuthContext();
-  console.log(login)
+  const { isLogin, login, logout } = useLoginContext();
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-normal p-4">
@@ -55,14 +68,14 @@ export const Navbar = () => {
        </div>
 
       <div className="nav-right">
-      { !isLogin && <button   
+      { (!isLogin && !session) && <button   
         className="mr-2 bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={() => router.push('/signup')}
       >
         Sign up
       </button>
       }
-      { !isLogin && <button   
+      { (!isLogin && !session) && <button   
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={() => router.push('/signin')}
       >
