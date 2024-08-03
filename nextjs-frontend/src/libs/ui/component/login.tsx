@@ -4,7 +4,7 @@ import React, { useState, createContext, useContext } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link'
-import { useAuthContext } from '@/libs/ui/providers/AuthContext'
+import { useLoginContext } from '@/libs/ui/providers/LoginContext'
 import { signIn } from "next-auth/react"
 
 /*
@@ -26,7 +26,7 @@ export const LoginContext = createContext<LoginContextType>({
 export const Login = () => {
   const router = useRouter()
   const pathname = usePathname()
-  const { isLogin, login, logout } = useAuthContext();
+  const { isLogin, login, logout } = useLoginContext();
 
   const [email, setEmail] = useState('')
   /*const [login, setLogin] = useState<ILogin>({email:"", isLogin: false});

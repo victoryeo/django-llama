@@ -4,12 +4,12 @@ import React, { useState, createContext, useContext } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link'
-import { useAuthContext } from '@/libs/ui/providers/AuthContext'
+import { useLoginContext } from '@/libs/ui/providers/LoginContext'
 
 export const Logout = () => {
   const router = useRouter()
   const pathname = usePathname()
-  const { isLogin, login, logout } = useAuthContext();
+  const { isLogin, login, logout } = useLoginContext();
 
   const handleLogout = async (e: any) => {
     e.preventDefault() // prevents page reload
