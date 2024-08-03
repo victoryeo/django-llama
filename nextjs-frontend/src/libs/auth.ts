@@ -1,17 +1,34 @@
 import NextAuth from "next-auth";
 import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
+import { User } from "./auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
 	...authConfig,
 	callbacks: {
+		async session({ session, token, user }) {
+			session.user = token.user as User
+			return session;
+		},
+		async jwt({ token, user, trigger, session }) {
+			if (user) {
+				token.user = user;
+			}
+			// ***************************************************************
+			// added code
+			if (trigger === "update" && session) {
+				token = {...token, user : session}
+				return token;
+			};
+				// **************************************************************
+			return token;
+		},		
 		async signIn({ user, account, profile, email, credentials }) {
 			const isAllowedToSignIn = true
 			console.log(user)
 			console.log("isAllowedToSignIn", isAllowedToSignIn)
 			if (isAllowedToSignIn) {
-			  return '/lmshome'
-			  //return true
+			  return true
 			} else {
 			  // Return false to display a default error message
 			  return false
@@ -32,6 +49,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 				return url
 			} else
 				return baseUrl
-		},		
+		},	
 	}
 })

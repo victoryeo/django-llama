@@ -83,11 +83,11 @@ export const Navbar = () => {
       </button>
       }
 
-      { isLogin && <button   
+      { (isLogin || session)  && <button   
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        onClick={() => router.push('/logout')}
+        onClick={() => router.push('/signout')}
       >
-        Logout
+        Sign out
       </button>
       }
 

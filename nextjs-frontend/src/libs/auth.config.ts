@@ -2,6 +2,7 @@ import MicrosoftEntraID from "next-auth/providers/microsoft-entra-id";
 import Credentials from "next-auth/providers/credentials"
 import type { Provider } from "next-auth/providers"
 import type { NextAuthConfig } from 'next-auth';
+import { redirect } from "next/dist/server/api-utils";
 
 export type User = {
     id: string
@@ -25,7 +26,7 @@ const providers: Provider[] = [
 	  name: "Credentials",
 	  credentials: {
 		username: { label: "Username", type: "text", placeholder: "jsmith" },
-		password: { label: "Password", type: "password" } 
+		password: { label: "Password", type: "password" },
 	  },
 	  authorize(credentials, req) {
 		console.log("credential ",credentials)
@@ -52,7 +53,7 @@ export const providerMap = providers.map((provider) => {
 
 export const authConfig = {
   pages: {
-    signIn: '/login',
+    signIn: '/signin',
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
@@ -70,24 +71,7 @@ export const authConfig = {
         return Response.redirect(new URL('/', nextUrl));
       }
       return true;
-    },
-    async session({ session, token, user }) {
-        session.user = token.user as User
-        return session;
-      },
-    async jwt({ token, user, trigger, session }) {
-        if (user) {
-            token.user = user;
-        }
-        // ***************************************************************
-        // added code
-        if (trigger === "update" && session) {
-            token = {...token, user : session}
-            return token;
-        };
-            // **************************************************************
-        return token;
-    },    
+    },   
   },
   providers: providers,
 } satisfies NextAuthConfig;
