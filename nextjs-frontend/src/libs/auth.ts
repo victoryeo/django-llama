@@ -32,6 +32,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 				return url
 			} else
 				return baseUrl
-		},	
+		},		
 	}
 })

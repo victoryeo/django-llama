@@ -3,6 +3,18 @@ import Credentials from "next-auth/providers/credentials"
 import type { Provider } from "next-auth/providers"
 import type { NextAuthConfig } from 'next-auth';
 
+export type User = {
+    id: string
+    email: string
+    name : string
+    emailVerified: Date
+};
+
+const sampleuser: User = { 
+    id: "jsmith", name: "J Smith", email: "jsmith@example.com",
+    emailVerified: new Date("1970")
+}
+
 const providers: Provider[] = [
 	MicrosoftEntraID({
 		clientId: process.env.AUTH_MICROSOFT_ENTRA_ID_ID,
@@ -17,7 +29,7 @@ const providers: Provider[] = [
 	  },
 	  authorize(credentials, req) {
 		console.log("credential ",credentials)
-		const user = { id: "jsmith", name: "J Smith", email: "jsmith@example.com" }
+		const user = sampleuser
 		if (user) {
 			return user
 		} else {
@@ -59,6 +71,23 @@ export const authConfig = {
       }
       return true;
     },
+    async session({ session, token, user }) {
+        session.user = token.user as User
+        return session;
+      },
+    async jwt({ token, user, trigger, session }) {
+        if (user) {
+            token.user = user;
+        }
+        // ***************************************************************
+        // added code
+        if (trigger === "update" && session) {
+            token = {...token, user : session}
+            return token;
+        };
+            // **************************************************************
+        return token;
+    },    
   },
   providers: providers,
 } satisfies NextAuthConfig;
