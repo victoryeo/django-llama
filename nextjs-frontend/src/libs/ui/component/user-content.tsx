@@ -10,8 +10,10 @@ export const UserContent = () => {
   const pathname = usePathname()
 
   return (
-    <div className="grid grid-rows-3 md:grid-cols-4 gap-y-4 px-14"
+    <div className="grid grid-rows-3 md:grid-cols-5 gap-y-4 px-14"
       style={{ backgroundColor: "#ddd" }}>
+      <div className='upperFeature'>
+      </div>
       <div className='upperFeature'>
       </div>
       <div className='upperFeature'>
@@ -22,9 +24,11 @@ export const UserContent = () => {
       </div>
       <div className='upperFeature font-bold'>Your
       </div>
-      <div className='upperFeature font-bold'>content
+      <div className='upperFeature font-bold'>user
       </div>
-      <div className='upperFeature font-bold'>is 
+      <div className='upperFeature font-bold'>specific
+      </div>
+      <div className='upperFeature font-bold'>content
       </div>
       <div className='upperFeature font-bold'>here
       </div>
