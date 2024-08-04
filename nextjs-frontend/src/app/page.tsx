@@ -6,6 +6,7 @@ import { Pagefooter } from "../libs/ui/component/pagefooter";
 import  Slider  from "../libs/ui/component/slider";
 import { auth, signOut } from "@/libs/auth"
 import { UserContent } from "@/libs/ui/component/user-content";
+import UserSession from "./user-session";
 
 export default async function Home() {
   const session = await auth()// calling session
@@ -13,7 +14,7 @@ export default async function Home() {
   return (
     <>
       <div className="">
-        <Navbar session={session}/>
+        <UserSession/>
         { !session && <Slider />
         }
         { session && <UserContent/>

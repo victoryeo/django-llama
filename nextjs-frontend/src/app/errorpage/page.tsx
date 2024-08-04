@@ -1,4 +1,5 @@
 import { Navbar } from "../../libs/ui/component/navbar";
+import UserSession from "../user-session";
 
 export default async function Page(
     { searchParams }: 
@@ -12,7 +13,7 @@ export default async function Page(
   
   return (
     <div className="">
-        <Navbar />
+        <UserSession />
         <div className="grid grid-rows-2 md:grid-cols-2 gap-y-4 gap-x-4 px-40"
       style={{ backgroundColor: "#ffffff" }}>
             <div>
