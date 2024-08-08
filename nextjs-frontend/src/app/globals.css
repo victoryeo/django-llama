@@ -53,6 +53,13 @@ body {
   text-decoration: underline;
 }
 
+.player-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding-top: 0.25%; 
+}
+
 .pagefooter {
   background: #000;
   color: white;
