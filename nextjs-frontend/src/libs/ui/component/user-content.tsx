@@ -30,7 +30,7 @@ export const UserContent = () => {
       </div>
       <div className='upperFeature font-bold'>content
       </div>
-      <div className='upperFeature font-bold'>here
+      <div className='upperFeature font-bold'>is here
       </div>
       <div className='lowerFeature'>
       </div>
