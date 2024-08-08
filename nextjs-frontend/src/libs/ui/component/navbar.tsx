@@ -19,9 +19,10 @@ type Props = {
 export const Navbar = ({session} : Props) => {
   const router = useRouter()
   const pathname = usePathname()
-  //const { data: session, update } = useSession()
+  const { data: sessionclient, update } = useSession()
   const [user, setUser] = useState<User>({} as User)
   console.log("sessionme", session);
+  console.log("sessionclient", sessionclient)
 
   useEffect(() => {
     if(session && session.user) 
