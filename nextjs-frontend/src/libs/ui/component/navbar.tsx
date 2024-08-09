@@ -35,6 +35,10 @@ export const Navbar = ({session} : Props) => {
   //let { login, saveLogin } = useContext(LoginContext) as LoginContextType
   const { isLogin, login, logout } = useLoginContext();
 
+  const handleProfile = () => {
+    console.log("handleProfile")
+  }
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-normal p-4">
@@ -99,7 +103,10 @@ export const Navbar = ({session} : Props) => {
 
       <span className="bg-transparent text-blue-700 font-semibold hover:text-white py-2 px-4 hover:border-transparent rounded"></span>
 
-      <img src="/info.svg" alt="login" />
+      { (isLogin || session) && <a onClick={() => handleProfile()}>
+        <img src="/info.svg" alt="login" />
+      </a>
+      }
       </div>
     </nav>
   );
