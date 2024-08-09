@@ -22,7 +22,7 @@ export const Navbar = ({session} : Props) => {
   const pathname = usePathname()
   const { data: sessionclient, update } = useSession()
   const [user, setUser] = useState<User>({} as User)
-  const [open, setOpen] = useState(true)
+  const [dialogopen, setDialogopen] = useState(true)
 
   console.log("sessionme", session);
   console.log("sessionclient", sessionclient)
@@ -46,7 +46,7 @@ export const Navbar = ({session} : Props) => {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     console.log("onSubmit", open)
-    setOpen(true)
+    setDialogopen(true)
   }
 
   return (
@@ -159,7 +159,7 @@ export const Navbar = ({session} : Props) => {
       }
       </div>
 
-  <Dialog open={open} onClose={setOpen} className="relative z-10">
+  <Dialog open={dialogopen} onClose={setDialogopen} className="relative z-10">
     <DialogBackdrop
       transition
       className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
@@ -196,7 +196,7 @@ export const Navbar = ({session} : Props) => {
           <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={() => setDialogopen(false)}
               className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
             >
               Okay
@@ -204,7 +204,7 @@ export const Navbar = ({session} : Props) => {
             <button
               type="button"
               data-autofocus
-              onClick={() => setOpen(false)}
+              onClick={() => setDialogopen(false)}
               className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
             >
               Cancel
