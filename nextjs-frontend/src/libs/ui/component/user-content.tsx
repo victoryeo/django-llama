@@ -11,7 +11,8 @@ export const UserContent = () => {
   const [video, setVideo] = useState<any>(null)
   useEffect(()=>{
     setVideo(<ReactPlayer url="https://www.youtube.com/watch?v=gfU1iZnjRZM" 
-      controls={true} width="120%" height="auto"/>)
+      controls={true} width="120%" height="auto"
+      config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}/>)
   }, [])
 
   return (
