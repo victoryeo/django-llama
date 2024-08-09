@@ -35,7 +35,7 @@ export const Signin = () => {
                 action={async () => {
                 "use server"
                 try {
-                    await signIn(provider.id, {                       
+                    await signIn(provider.id, {
                         redirectTo: "/",
                     })
                 } catch (error) {
