@@ -66,7 +66,7 @@ const ProfileDialog = ({session, dialogopen, setDialogopen} : Props) => {
                 </DialogTitle>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    Your has not subscribed to any courses
+                    Your have not subscribed to any courses
                   </p>
                 </div>
               </div>
