@@ -111,9 +111,9 @@ export const Navbar = ({session} : PropsNavbar) => {
 
   }
 
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onAccountSettingsSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    console.log("onSubmit", dialogopen)
+    console.log("onAccountSettingsSubmit", dialogopen)
     setDialogopen(true)
   }
 
@@ -195,7 +195,7 @@ export const Navbar = ({session} : PropsNavbar) => {
           className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
         >
           <div className="py-1">
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onAccountSettingsSubmit}>
             <MenuItem>
               <button
                 type="submit"
