@@ -46,7 +46,7 @@ const ProfileDialog = ({session, dialogopen, setDialogopen} : Props) => {
               </div>
               <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                 <DialogTitle as="h3" className="text-base font-bold leading-6 text-gray-900">
-                  Account Settings
+                  Account Info
                 </DialogTitle>
                 <DialogTitle as="h3" className="text-base font-normal leading-6 text-gray-900">
                   Profile
@@ -212,7 +212,7 @@ export const Navbar = ({session} : PropsNavbar) => {
                 type="submit"
                 className="block w-full px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
               >
-                Account settings
+                Account info
               </button>
             </MenuItem>
             </form>
