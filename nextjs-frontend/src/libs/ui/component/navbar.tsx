@@ -45,7 +45,10 @@ const ProfileDialog = ({session, dialogopen, setDialogopen} : Props) => {
                 
               </div>
               <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
+                <DialogTitle as="h3" className="text-base font-bold leading-6 text-gray-900">
+                  Account Settings
+                </DialogTitle>
+                <DialogTitle as="h3" className="text-base font-normal leading-6 text-gray-900">
                   Profile
                 </DialogTitle>
                 <div className="mt-2">
@@ -56,6 +59,14 @@ const ProfileDialog = ({session, dialogopen, setDialogopen} : Props) => {
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
                     Your email is {session?.user?.email}
+                  </p>
+                </div>
+                <DialogTitle as="h3" className="text-base font-normal leading-6 text-gray-900">
+                  Courses
+                </DialogTitle>
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">
+                    Your has not subscribed to any courses
                   </p>
                 </div>
               </div>
