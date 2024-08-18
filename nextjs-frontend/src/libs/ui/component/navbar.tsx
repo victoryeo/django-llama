@@ -19,6 +19,11 @@ type Props = {
   setDialogopen: (value: boolean) => void
 }
 
+type PropsNavbar = {
+  session : Session | null;
+}
+
+
 const ProfileDialog = ({session, dialogopen, setDialogopen} : Props) => {
 
   return (
@@ -80,7 +85,7 @@ const ProfileDialog = ({session, dialogopen, setDialogopen} : Props) => {
   )
 }
 
-export const Navbar = ({session} : Props) => {
+export const Navbar = ({session} : PropsNavbar) => {
   const router = useRouter()
   const pathname = usePathname()
   const { data: sessionclient, update } = useSession()
