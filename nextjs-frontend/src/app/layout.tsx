@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { LoginProvider } from "@/libs/ui/providers/LoginContext";
 import { AuthProvider } from '@/libs/ui/providers/AuthContext';
+import { Sidebar } from "@/libs/ui/component/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,9 @@ export default async function RootLayout({
     <LoginProvider>
     <html lang="en">
       <body className={inter.className}>
+        <Sidebar />
         <AuthProvider>
-          {children}
+          <main className='mx-1 mt-0 sm:ml-[200px] sm:mt-0'>{children}</main>
         </AuthProvider>
       </body>
     </html>
