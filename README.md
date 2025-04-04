@@ -11,7 +11,8 @@ The core of this app lies in its ability to:
 - Use open source Llama2 model
 
 ## Instruction
-python manage.py runserver
+To run the chatbot
+$ python manage.py runserver
 
 ## Frontend
 The frontend is built using NextJS. It is in nextjs-chatbot.
