@@ -10,5 +10,8 @@ The core of this app lies in its ability to:
 - Use Llama2 CPP to answer queries with info extracted from indexed content
 - Use open source Llama2 model
 
+## Instruction
+python manage.py runserver
+
 ## Frontend
 The frontend is built using NextJS. It is in nextjs-chatbot.
