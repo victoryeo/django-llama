@@ -9,7 +9,7 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.vectorstores import Chroma
 from langchain_community.llms import LlamaCpp
 from langchain.prompts import PromptTemplate
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from typing import Union, Optional, Any
 import requests
 import os
